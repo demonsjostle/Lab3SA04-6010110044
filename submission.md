@@ -4,4 +4,4 @@
 1. หน้า ZipCodeScreen 
 - ได้ศึกษาเรื่อง style เพิ่มและมีการเพิ่ม border ให้กับแต่ละ element และใส่ภาพพึ้นหลังดังรูปภาพ
 
-![This is an image](./ZipcodeScreen-snapshort.png)
+![This is an image](ZipcodeScreen-snapshort.png)

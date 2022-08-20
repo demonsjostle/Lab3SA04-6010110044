@@ -55,8 +55,7 @@ const styles = StyleSheet.create({
         height: '100%',
         justifyContent: 'center',
         alignItems: 'center',
-        borderWidth: 1,
-        borderColor: "white",
+
     },
     text: {
         fontSize: 20

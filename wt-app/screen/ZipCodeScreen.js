@@ -29,7 +29,7 @@ export default function ZipCodeScreen() {
     return (
 
         <View style={styles.zipList}>
-            <ImageBackground source={require('../bg.jpeg')} style={styles.backdrop}>
+            <ImageBackground source={require('../star.jpeg')} style={styles.backdrop}>
                 <FlatList style={styles.zipList}
                     data={availableZipItems}
                     keyExtractor={_keyExtractor}
@@ -48,15 +48,15 @@ const styles = StyleSheet.create({
         flex: 1,
         flexDirection: 'row',
         justifyContent: 'space-between',
-        backgroundColor: "#1e1e26",
-        borderColor: "#fff",
+        // backgroundColor: "#1e1e26",
+        height: 110,
         borderStyle: "solid",
         borderWidth: "1px"
 
     },
     font: {
-        fontSize: "35",
-        color: 'blue',
+        fontSize: "30",
+        color: '#fff',
         fontWeight: 'bold'
     },
     zipList: {

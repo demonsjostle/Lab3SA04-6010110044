@@ -31,11 +31,14 @@ export default function Weather(props) {
     return (
         <View>
             <ImageBackground source={require('../bg.jpeg')} style={styles.backdrop}>
-                <Text>Zip Code</Text>
-                <Text>{props.zipCode}</Text>
-                <Forecast {...forecastInfo} />
-            </ImageBackground>
-        </View>
+                <View style={styles.view}>
+                    <Text style={{ fontSize: 40, fontWeight: "bold", color: "#fff" }}>The Weather Today</Text>
+                    <View style={styles.circle}>
+                        <Forecast {...forecastInfo} />
+                    </View>
+                </View>
+            </ImageBackground >
+        </View >
     );
 }
 
@@ -43,7 +46,27 @@ export default function Weather(props) {
 const styles = StyleSheet.create({
     backdrop: {
         alignItems: 'center',
+        justifyContent: 'center',
         width: '100%',
         height: '100%'
     },
+    view: {
+        width: '100%',
+        height: '100%',
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderWidth: 1,
+        borderColor: "white",
+    },
+    text: {
+        fontSize: 20
+    },
+    circle: {
+        borderRadius: 300 / 2,
+        width: 300,
+        height: 300,
+        backgroundColor: "#0E1838",
+        justifyContent: "center",
+        alignItems: 'center'
+    }
 });

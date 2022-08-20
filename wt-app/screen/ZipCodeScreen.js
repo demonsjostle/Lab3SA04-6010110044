@@ -1,5 +1,5 @@
 import React from 'react'
-import { FlatList, View, Text, StyleSheet } from 'react-native'
+import { FlatList, View, Text, StyleSheet, ImageBackground, ScrollView } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import { StatusBar } from 'expo-status-bar'
 import { TouchableHighlight } from 'react-native-gesture-handler'
@@ -16,8 +16,8 @@ const ZipItem = ({ place, code, navigation }) => (
         navigation.navigate('Weather', { zipCode: code })
     }}>
         <View style={styles.zipItem}>
-            <Text>{place}</Text>
-            <Text>{code}</Text>
+            <Text style={styles.font}>{place}</Text>
+            <Text style={styles.font}>{code}</Text>
         </View>
     </TouchableHighlight>
 )
@@ -27,14 +27,18 @@ const _keyExtractor = item => item.code
 export default function ZipCodeScreen() {
     const navigation = useNavigation()
     return (
-        <View>
-            <FlatList
-                data={availableZipItems}
-                keyExtractor={_keyExtractor}
-                renderItem={({ item }) => <ZipItem {...item} navigation={navigation} />}
-            />
-            <StatusBar style="auto" />
-        </View>
+
+        <View style={styles.zipList}>
+            <ImageBackground source={require('../bg.jpeg')} style={styles.backdrop}>
+                <FlatList style={styles.zipList}
+                    data={availableZipItems}
+                    keyExtractor={_keyExtractor}
+                    renderItem={({ item }) => <ZipItem {...item} navigation={navigation} />}
+                />
+                <StatusBar style="auto" />
+            </ImageBackground>
+        </View >
+
     );
 
 }
@@ -43,14 +47,26 @@ const styles = StyleSheet.create({
     zipItem: {
         flex: 1,
         flexDirection: 'row',
-        justifyContent: 'space-between'
-    },
-    zipPlace: {
-        flex: 1,
+        justifyContent: 'space-between',
+        backgroundColor: "#1e1e26",
+        borderColor: "#fff",
+        borderStyle: "solid",
+        borderWidth: "1px"
 
     },
-    zipCode: {
-        flex: 1,
+    font: {
+        fontSize: "35",
+        color: 'blue',
+        fontWeight: 'bold'
+    },
+    zipList: {
+        flexDirection: 'column',
 
+        flex: 40
+    },
+    backdrop: {
+        width: '100%',
+        height: '100%'
     }
+
 })

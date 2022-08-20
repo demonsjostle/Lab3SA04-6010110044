@@ -3,7 +3,8 @@ import { Text, View, ImageBackground, StyleSheet } from 'react-native'
 import Forecast from './Forecast'
 export default function Weather(props) {
     const [forecastInfo, setForecastInfo] = useState({
-        name: '-',
+        city: '-',
+        country: '-',
         main: '-',
         description: '-',
         temp: 0
@@ -15,6 +16,8 @@ export default function Weather(props) {
                 .then((response) => response.json())
                 .then((json) => {
                     setForecastInfo({
+                        city: json.name,
+                        country: json.sys.country,
                         main: json.weather[0].main,
                         description: json.weather[0].description,
                         temp: json.main.temp
